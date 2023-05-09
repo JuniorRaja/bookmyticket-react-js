@@ -8,16 +8,16 @@ const Navbar = () => {
     <div className="navBar flex">
       <div className="navBarOne flex">
         <div>
-          <SiConsul />
+          <SiConsul className="icons" />
         </div>
 
         <div className="none flex">
           <li className="flex">
-            <BsPhoneVibrate />
+            <BsPhoneVibrate className="icons" />
             Support
           </li>
           <li className="flex">
-            <AiOutlineGlobal />
+            <AiOutlineGlobal className="icons" />
             Languages
           </li>
         </div>
@@ -25,6 +25,12 @@ const Navbar = () => {
         <div className="atb flex">
           <span>Sign In</span>
           <span>Sign Up</span>
+        </div>
+      </div>
+
+      <div className="navBarTwo">
+        <div className="logoDiv">
+          <img src="" alt="" />
         </div>
       </div>
     </div>
