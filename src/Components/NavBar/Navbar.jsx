@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { SiConsul } from "react-icons/si";
 import { BsPhoneVibrate } from "react-icons/bs";
 import { AiOutlineGlobal } from "react-icons/ai";
+import { CgMenuGridO } from "react-icons/cg";
+
+import logo from "../../assests/logo.png";
 
 const Navbar = () => {
+  const [isSideNavActive, setIsSideNavActive] = useState("navBarMenu");
+  const showNavBar = () => {
+    isSideNavActive === "navBarMenu"
+      ? setIsSideNavActive("navBarMenu showNavBar")
+      : setIsSideNavActive("navBarMenu");
+  };
+
+  const hideNavBar = () => {
+    setIsSideNavActive("navBarMenu");
+  };
+
   return (
     <div className="navBar flex">
       <div className="navBarOne flex">
@@ -11,7 +25,7 @@ const Navbar = () => {
           <SiConsul className="icons" />
         </div>
 
-        <div className="none flex">
+        {/* <div className="none flex">
           <li className="flex">
             <BsPhoneVibrate className="icons" />
             Support
@@ -20,7 +34,7 @@ const Navbar = () => {
             <AiOutlineGlobal className="icons" />
             Languages
           </li>
-        </div>
+        </div> */}
 
         <div className="atb flex">
           <span>Sign In</span>
@@ -30,7 +44,35 @@ const Navbar = () => {
 
       <div className="navBarTwo">
         <div className="logoDiv">
-          <img src="" alt="" />
+          <img src={logo} alt="logo" className="Logo" />
+        </div>
+
+        <div className={isSideNavActive}>
+          <ul className="menu flex">
+            <li onClick={hideNavBar} className="listItem">
+              About
+            </li>
+            <li onClick={hideNavBar} className="listItem">
+              Offers
+            </li>
+            <li onClick={hideNavBar} className="listItem">
+              Seats
+            </li>
+            <li onClick={hideNavBar} className="listItem">
+              Home
+            </li>
+            <li onClick={hideNavBar} className="listItem">
+              Destinations
+            </li>
+          </ul>
+
+          <button className="btn flex btnOne">Contact</button>
+        </div>
+
+        <button className="btn flex btnTwo">Contact</button>
+
+        <div onClick={showNavBar} className="toggleIcon">
+          <CgMenuGridO className="icon" />
         </div>
       </div>
     </div>
