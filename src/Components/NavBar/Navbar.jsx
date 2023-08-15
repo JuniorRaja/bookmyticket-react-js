@@ -8,6 +8,7 @@ import logo from "../../assests/logo.png";
 
 const Navbar = () => {
   const [isSideNavActive, setIsSideNavActive] = useState("navBarMenu");
+
   const showNavBar = () => {
     isSideNavActive === "navBarMenu"
       ? setIsSideNavActive("navBarMenu showNavBar")
@@ -17,6 +18,21 @@ const Navbar = () => {
   const hideNavBar = () => {
     setIsSideNavActive("navBarMenu");
   };
+
+  const [noBG, addBG] = useState("navBarTwo");
+  
+  const addBGColor = () => {
+    if(window.scrollY >= 10){
+      addBG('navBarTwo navbar_with_bg')
+    }
+    else {
+      addBG('navBarTwo')
+    }
+  };
+
+  window.addEventListener('scroll', addBGColor)
+
+  
 
   return (
     <div className="navBar flex">
@@ -42,7 +58,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="navBarTwo">
+      <div className={noBG}>
         <div className="logoDiv">
           <img src={logo} alt="logo" className="Logo" />
         </div>
